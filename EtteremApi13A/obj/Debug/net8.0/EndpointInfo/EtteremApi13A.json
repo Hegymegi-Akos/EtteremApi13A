@@ -64,6 +64,45 @@
             "description": "OK"
           }
         }
+      },
+      "put": {
+        "tags": [
+          "Rendeles"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateRendelesDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateRendelesDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateRendelesDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/RendelesTetel": {
@@ -94,6 +133,20 @@
   "components": {
     "schemas": {
       "AddRendelesDto": {
+        "type": "object",
+        "properties": {
+          "asztalSzam": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fizetesMod": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateRendelesDto": {
         "type": "object",
         "properties": {
           "asztalSzam": {

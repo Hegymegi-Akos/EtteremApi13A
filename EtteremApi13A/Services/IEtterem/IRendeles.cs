@@ -7,5 +7,6 @@ namespace EtteremApi13A.Services.IEtterem
         Task<object> GetAll();
         Task<object> Post(AddRendelesDto addRendelesDto);
         Task<object> Delete(int id);
+        Task<object> Update(int id, UpdateRendelesDto updateRendelesDto);
     }
 }

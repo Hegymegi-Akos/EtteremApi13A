@@ -58,9 +58,26 @@ namespace EtteremApi13A.Controllers
             else
             {
                 return BadRequest(requestResult);
-            }
+            }    
+        }
 
-                
+        [HttpPut]
+        public async Task<ActionResult> PutData(int id, UpdateRendelesDto updateRendelesDto)
+        {
+            var requestResult = await _di.Update(id, updateRendelesDto) as ResponseDto;
+
+            if (requestResult.Result != null)
+            {
+                return Ok(requestResult);
+            }
+            else if (requestResult.Result == null)
+            {
+                return NotFound(requestResult);
+            }
+            else
+            {
+                return BadRequest(requestResult);
+            }
         }
     }
 }

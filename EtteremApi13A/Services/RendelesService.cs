@@ -38,7 +38,7 @@ namespace EtteremApi13A.Services
             catch (Exception ex)
             {
                 _responseDto.Message = ex.Message;
-                _responseDto.Result = null;
+                _responseDto.Result = ex.Data;
                 return _responseDto;
             }
         }
@@ -81,6 +81,37 @@ namespace EtteremApi13A.Services
             {
                 _responseDto.Message = ex.Message;
                 _responseDto.Result = null;
+                return _responseDto;
+            }
+        }
+
+        public async Task<object> Update(int id, UpdateRendelesDto updateRendelesDto)
+        {
+            try
+            {
+                var requestResult = await _context.Rendeles.FirstOrDefaultAsync(x => x.RendelesId == id);
+
+                if (requestResult != null)
+                {
+                    requestResult.AsztalSzam = updateRendelesDto.AsztalSzam;
+                    requestResult.FizetesMod = updateRendelesDto.FizetesMod;
+
+                    _context.Rendeles.Update(requestResult);
+                    await _context.SaveChangesAsync();
+
+                    _responseDto.Message = "Sikeres frissítés.";
+                    _responseDto.Result = requestResult;
+                    return _responseDto;
+                }
+
+                _responseDto.Message = "Nincs ilyen id.";
+                _responseDto.Result = requestResult;
+                return _responseDto;
+            }
+            catch (Exception ex)
+            {
+                _responseDto.Message = ex.Message;
+                _responseDto.Result = ex.Data;
                 return _responseDto;
             }
         }
