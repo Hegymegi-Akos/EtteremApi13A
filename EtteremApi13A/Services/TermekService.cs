@@ -5,23 +5,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EtteremApi13A.Services
 {
-    public class RendelesSevice : IRendeles
+    public class TermekService : ITermek
     {
         private readonly EtteremContext _context;
         private readonly ResponseDto _responseDto;
-        public RendelesSevice(EtteremContext context, ResponseDto responseDto)
+        public TermekService(EtteremContext context, ResponseDto responseDto)
         {
             _context = context;
             _responseDto = responseDto;
         }
-
-        public async Task<object> GetAllRendeles()
+        public async Task<object> GetAll()
         {
             try
             {
-                var rendelesek = await _context.Rendeles.ToListAsync();
+                var requestResult = await _context.Termeks.ToListAsync();
                 _responseDto.Message = "Sikeres lekérdezés.";
-                _responseDto.Result = rendelesek;
+                _responseDto.Result = requestResult;
                 return _responseDto;
             }
             catch (Exception ex)
