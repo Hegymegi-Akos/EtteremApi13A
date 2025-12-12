@@ -1,4 +1,6 @@
 
+using EtteremApi13A.Models;
+
 namespace EtteremApi13A
 {
     public class Program
@@ -6,6 +8,8 @@ namespace EtteremApi13A
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddDbContext<EtteremContext>();
 
             // Add services to the container.
 

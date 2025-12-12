@@ -1,3 +1,6 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
   <Project Path="EtteremApi13A/EtteremApi13A.csproj" />
 </Solution>
