@@ -10,6 +10,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EtteremApi13A.Controllers.RendelesController",
+    "Method": "PostData",
+    "RelativePath": "api/Rendeles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addRendelesDto",
+        "Type": "EtteremApi13A.Models.Dtos.AddRendelesDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EtteremApi13A.Controllers.RendelesTetelController",
     "Method": "GetAll",
     "RelativePath": "api/RendelesTetel",

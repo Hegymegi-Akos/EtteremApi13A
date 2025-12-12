@@ -1,4 +1,5 @@
-﻿using EtteremApi13A.Services.IEtterem;
+﻿using EtteremApi13A.Models.Dtos;
+using EtteremApi13A.Services.IEtterem;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +20,18 @@ namespace EtteremApi13A.Controllers
         {
             var requestResult = await _di.GetAll();
             if(requestResult != null)
+            {
+                return Ok(requestResult);
+            }
+
+            return BadRequest(requestResult);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> PostData(AddRendelesDto addRendelesDto)
+        {
+            var requestResult = await _di.Post(addRendelesDto);
+            if (requestResult != null)
             {
                 return Ok(requestResult);
             }
