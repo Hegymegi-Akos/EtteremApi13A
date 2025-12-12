@@ -15,6 +15,34 @@ namespace EtteremApi13A.Services
             _responseDto = responseDto;
         }
 
+        public async Task<object> Delete(int id)
+        {
+            try
+            {
+                var requestResult = await _context.Rendeles.FirstOrDefaultAsync(x => x.RendelesId == id);
+                
+                if (requestResult != null) 
+                {
+                    _context.Rendeles.Remove(requestResult);
+                    await _context.SaveChangesAsync();
+
+                    _responseDto.Message = "Sikeres törlés.";
+                    _responseDto.Result = requestResult;
+                    return _responseDto;
+                }
+
+                _responseDto.Message = "Nincs ilyen id.";
+                _responseDto.Result = requestResult;
+                return _responseDto;
+            }
+            catch (Exception ex)
+            {
+                _responseDto.Message = ex.Message;
+                _responseDto.Result = null;
+                return _responseDto;
+            }
+        }
+
         public async Task<object> GetAll()
         {
             try
