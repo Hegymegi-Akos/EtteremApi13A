@@ -10,6 +10,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EtteremApi13A.Controllers.RendelesTetelController",
+    "Method": "GetAll",
+    "RelativePath": "api/RendelesTetel",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EtteremApi13A.Controllers.TermekController",
     "Method": "GetAll",
     "RelativePath": "api/Termek",

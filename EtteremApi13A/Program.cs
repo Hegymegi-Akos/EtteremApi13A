@@ -15,6 +15,7 @@ namespace EtteremApi13A
             builder.Services.AddDbContext<EtteremContext>();
             builder.Services.AddScoped<IRendeles, RendelesService>();
             builder.Services.AddScoped<ITermek, TermekService>();
+            builder.Services.AddScoped<IRendelesTetel, RendelesTetel>();
             builder.Services.AddScoped<ResponseDto>();
 
             // Add services to the container.
