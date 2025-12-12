@@ -29,7 +29,7 @@ namespace EtteremApi13A.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> PostData(AddRendelesDto addRendelesDto)
+        public async Task<ActionResult> PostData(AdsTermekDto addRendelesDto)
         {
             var requestResult = await _di.Post(addRendelesDto) as ResponseDto;
             //var result = requestResult.Result as Rendele;

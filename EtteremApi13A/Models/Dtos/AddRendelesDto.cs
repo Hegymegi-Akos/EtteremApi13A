@@ -1,6 +1,6 @@
 ﻿namespace EtteremApi13A.Models.Dtos
 {
-    public class AddRendelesDto
+    public class AdsTermekDto
     {
         public int AsztalSzam { get; set; }
 

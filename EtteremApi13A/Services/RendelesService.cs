@@ -60,7 +60,7 @@ namespace EtteremApi13A.Services
             }
         }
 
-        public async Task<object> Post(AddRendelesDto addRendelesDto)
+        public async Task<object> Post(AdsTermekDto addRendelesDto)
         {
             try
             {
